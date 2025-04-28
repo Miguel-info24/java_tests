@@ -52,6 +52,8 @@ public class Account {
         this.cpf = cpf;
         this.numRec = numRec;
     }
+    public Account() {
+    }
     
 
     public void setNome(String newNome) {
