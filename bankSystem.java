@@ -78,16 +78,23 @@ public class bankSystem {
 
         System.out.println("digite o nome do banco: ");
         c.setNmBanco(scanString());
+
         System.out.println("digite a Agencia:");
         c.setAgencia(scanInt());
 
         System.out.println("digite o numero da sua conta:");
         c.setNumConta(scanString());
+
         System.out.println("digite o seu cpf");
         c.setCpf(scanString());
-        System.out.println("digite o seu endereço");
+
+        System.out.println("digite o seu endereço");//if
         c.setEndereco(scanString());
+
+        System.out.println("digite o numero de recuperação");//if
         c.setNumRec(scanString());
+
+
         contas.add(c);
     }
 
