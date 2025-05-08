@@ -3,10 +3,11 @@ import java.util.Scanner;
 
 public class bankSystem {
     public static ArrayList<Account> contas = new ArrayList<>();
+    public static Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) {
         int op = 0;
-        Scanner scan = new Scanner(System.in);
+
         while (op != 9) {
             Menu();
             op = scan.nextInt();
@@ -68,11 +69,14 @@ public class bankSystem {
 
     public static void criaConta() {
         Account c = new Account();
-        System.out.println("digite o nome da sua conta:");
+        System.out.println("digite o nome do usuário:");
         c.setNome(scanString());
-
-        System.out.println("digite a senha da sua conta: ");// fazer o verifica senha
-        c.setSenha(scanString());
+        while(!verifyPassword(c.getSenha()))
+        {
+            System.out.println("digite a senha da sua conta: ");// fazer o verifica senha
+            c.setSenha(scanString());
+        }
+        
 
         c.setSaldo(0.0);
 
@@ -88,37 +92,49 @@ public class bankSystem {
         System.out.println("digite o seu cpf");
         c.setCpf(scanString());
 
-        System.out.println("digite o seu endereço");//if
+        System.out.println("digite o seu endereço");// if
         c.setEndereco(scanString());
 
-        System.out.println("digite o numero de recuperação");//if
+        System.out.println("digite o numero de recuperação");// if
         c.setNumRec(scanString());
-
 
         contas.add(c);
     }
 
     public static String scanString() {
-        Scanner scanner = new Scanner(System.in);
+
         String str;
-        str = scanner.next();
-        scanner.close();
+        str = scan.next();
+
         return str;
     }
 
     public static int scanInt() {
-        Scanner scanner = new Scanner(System.in);
         int num;
-        num = scanner.nextInt();
-        scanner.close();
+        num = scan.nextInt();
         return num;
     }
 
     public static double scanDouble() {
-        Scanner scanner = new Scanner(System.in);
         double num;
-        num = scanner.nextDouble();
-        scanner.close();
+        num = scan.nextDouble();
         return num;
+    }
+
+    public static boolean verifyPassword(String str) {
+        if(str/*tamanho < 6*/) {
+            System.out.println("digite uma senha com mais de 6 letras");
+            return false;
+        }
+        if (str /*não tiver pelo menos uma letra*/) {
+            System.out.println("digite no minimo uma letra");
+            return false;
+        }
+        if (str /*não tiver pelo menos um numero  */) {
+            System.out.println("digite pelo menos um numero");
+            return false;
+        }
+        return true;
+
     }
 }
