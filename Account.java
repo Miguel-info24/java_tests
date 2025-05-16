@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Account {
 
     private String nome;
@@ -9,6 +11,7 @@ public class Account {
     private String cpf;
     private String endereco;
     private String numRec;
+    private ArrayList<String> movimentacoes = new ArrayList<>();
 
     public Account(String nome, String senha, double saldo, String nmBanco, int agencia, String numConta, String cpf,
             String endereco, String numRec) {
@@ -22,7 +25,9 @@ public class Account {
         this.endereco = endereco;
         this.numRec = numRec;
     }
-    public Account(String nome, String senha, double saldo, String nmBanco, int agencia, String numConta, String cpf, String numRec) {
+
+    public Account(String nome, String senha, double saldo, String nmBanco, int agencia, String numConta, String cpf,
+            String numRec) {
         this.nome = nome;
         this.senha = senha;
         this.saldo = saldo;
@@ -32,6 +37,7 @@ public class Account {
         this.cpf = cpf;
         this.numRec = numRec;
     }
+
     public Account(String nome, String senha, String nmBanco, int agencia, String numConta, String cpf,
             String endereco, String numRec) {
         this.nome = nome;
@@ -43,7 +49,9 @@ public class Account {
         this.endereco = endereco;
         this.numRec = numRec;
     }
-    public Account(String nome, String senha, String nmBanco, int agencia, String numConta, String cpf, String numRec) {
+
+    public Account(String nome, String senha, String nmBanco, int agencia, String numConta, String cpf,
+            String numRec) {
         this.nome = nome;
         this.senha = senha;
         this.nmBanco = nmBanco;
@@ -52,9 +60,9 @@ public class Account {
         this.cpf = cpf;
         this.numRec = numRec;
     }
+
     public Account() {
     }
-    
 
     public void setNome(String newNome) {
         this.nome = newNome;
@@ -87,8 +95,8 @@ public class Account {
     public void setEndereco(String newEndereco) {
         this.endereco = newEndereco;
     }
-    public void setNumRec(String newNumRec)
-    {
+
+    public void setNumRec(String newNumRec) {
         this.numRec = newNumRec;
     }
 
@@ -123,8 +131,17 @@ public class Account {
     public String getEndereco() {
         return endereco;
     }
-    public String getNumRec()
-    {
+
+    public String getNumRec() {
         return numRec;
+    }
+
+    // Novos métodos
+    public ArrayList<String> getMovimentacoes() {
+        return movimentacoes;
+    }
+
+    public void adicionarMovimentacao(String descricao) {
+        movimentacoes.add(descricao);
     }
 }
