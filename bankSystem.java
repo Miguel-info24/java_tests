@@ -9,9 +9,11 @@ public class bankSystem {
         int op = 0;
 
         while (op != 9) {
+            Util.clear();
             Menu();
             op = scan.nextInt();
             opMenu(op);
+
         }
         scan.close();
     }
@@ -29,6 +31,7 @@ public class bankSystem {
     }
 
     public static void opMenu(int op) {
+        Util.clear();
         switch (op) {
             case 1:
                 System.out.println("Criar Conta");
@@ -69,14 +72,13 @@ public class bankSystem {
 
     public static void criaConta() {
         Account c = new Account();
+        char op = 'n';
         System.out.println("digite o nome do usuário:");
         c.setNome(scanString());
-        while(!verifyPassword(c.getSenha()))
-        {
-            System.out.println("digite a senha da sua conta: ");// fazer o verifica senha
+        do{
+            System.out.println("digite a senha da sua conta: ");
             c.setSenha(scanString());
-        }
-        
+        }while (!verifyPassword(c.getSenha()));
 
         c.setSaldo(0.0);
 
@@ -91,12 +93,24 @@ public class bankSystem {
 
         System.out.println("digite o seu cpf");
         c.setCpf(scanString());
-
-        System.out.println("digite o seu endereço");// if
-        c.setEndereco(scanString());
-
-        System.out.println("digite o numero de recuperação");// if
-        c.setNumRec(scanString());
+        while(op != 's' || op != 'n') {
+            System.out.println("você quer adicionar um endereço?(s/n)");
+            op = scanChar();
+        }
+        if (op == 's')
+        {
+            System.out.println("digite o seu endereço");
+            c.setEndereco(scanString());
+        }
+        
+        while(op != 's' || op != 'n') {
+            System.out.println("você quer adicionar um numero de recuperação?(s/n)");
+        }
+        if (op == 's') {
+            System.out.println("digite o numero de recuperação");
+            c.setNumRec(scanString());
+        }
+        
 
         contas.add(c);
     }
@@ -108,7 +122,12 @@ public class bankSystem {
 
         return str;
     }
-
+    public static char scanChar()
+    {
+        char c;
+        c = scan.next().charAt(0);
+        return c;
+    }
     public static int scanInt() {
         int num;
         num = scan.nextInt();
@@ -122,19 +141,32 @@ public class bankSystem {
     }
 
     public static boolean verifyPassword(String str) {
-        if(str/*tamanho < 6*/) {
+        if (str.length() < 6) {
             System.out.println("digite uma senha com mais de 6 letras");
             return false;
         }
-        if (str /*não tiver pelo menos uma letra*/) {
+        boolean temLetra = false;
+        for (char c : str.toCharArray()) {
+            if (Character.isLetter(c)) {
+                temLetra = true;
+                break;
+            }
+        }
+
+        if (!temLetra) {
             System.out.println("digite no minimo uma letra");
             return false;
         }
-        if (str /*não tiver pelo menos um numero  */) {
+        if (!str.matches(".*\\d.*")) {
             System.out.println("digite pelo menos um numero");
             return false;
         }
+        // fazer o if de caracter especial
+        if (!str.matches(".*[^a-zA-Z0-9].*")) {
+            System.out.println("digite pelo menos 1 caracter especial");
+            return false;
+        }
         return true;
-
     }
+
 }
