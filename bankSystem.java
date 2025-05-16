@@ -26,16 +26,16 @@ public class bankSystem {
             System.out.println("Nenhuma conta ativa no momento.");
         }
 
-        System.out.println("1 - Criar conta");
-        System.out.println("2 - Alterar conta");
-        System.out.println("3 - Listar todas as contas");
-        System.out.println("4 - Sacar dinheiro");
-        System.out.println("5 - Depositar dinheiro");
-        System.out.println("6 - Transferir dinheiro");
-        System.out.println("7 - Verificar saldo");
-        System.out.println("8 - Verificar movimentação");
-        System.out.println("9 - Sair");
-        System.out.println("10 - Logout");  // Nova opção de logout
+        System.out.println("(1) - Criar conta");
+        System.out.println("(2) - Alterar conta");
+        System.out.println("(3) - Listar todas as contas");
+        System.out.println("(4) - Sacar dinheiro");
+        System.out.println("(5) - Depositar dinheiro");
+        System.out.println("(6) - Transferir dinheiro");
+        System.out.println("(7) - Verificar saldo");
+        System.out.println("(8) - Verificar movimentação");
+        System.out.println("(9) - Logout");
+        System.out.println("(10) - Sair");
     }
 
     public static void opMenu(int op) {
@@ -73,7 +73,7 @@ public class bankSystem {
                 System.out.println("Ver movimentação");
                 verMovimentacao();
                 break;
-            case 10:
+            case 9:
                 System.out.println("Logout");
                 logout();
                 break;

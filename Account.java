@@ -136,7 +136,6 @@ public class Account {
         return numRec;
     }
 
-    // Novos métodos
     public ArrayList<String> getMovimentacoes() {
         return movimentacoes;
     }
