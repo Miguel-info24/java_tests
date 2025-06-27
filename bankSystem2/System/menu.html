@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu do Banco</title>
+    <link rel="stylesheet" href="style.css"
+</head>
+<body>
+
+    <h2>Menu do Banco</h2>
+
+    <div class="account-status">
+        Conta ativa: Nenhuma conta ativa no momento.
+    </div>
+
+    <form action="/menu" method="post">
+        <button class="menu-button" type="submit" name="op" value="1">(1) Criar conta</button>
+        <button class="menu-button" type="submit" name="op" value="2">(2) Alterar conta</button>
+        <button class="menu-button" type="submit" name="op" value="3">(3) Listar todas as contas</button>
+        <button class="menu-button" type="submit" name="op" value="4">(4) Sacar dinheiro</button>
+        <button class="menu-button" type="submit" name="op" value="5">(5) Depositar dinheiro</button>
+        <button class="menu-button" type="submit" name="op" value="6">(6) Transferir dinheiro</button>
+        <button class="menu-button" type="submit" name="op" value="7">(7) Verificar saldo</button>
+        <button class="menu-button" type="submit" name="op" value="8">(8) Verificar movimentação</button>
+        <button class="menu-button" type="submit" name="op" value="9">(9) Logout</button>
+        <button class="menu-button" type="submit" name="op" value="10">(10) Sair</button>
+    </form>
+
+</body>
+</html>
